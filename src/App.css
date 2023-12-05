@@ -38,11 +38,10 @@
 } */
 
 
-h3 {
-  margin-left: 20px;
-  margin-bottom: 0;
+button {
+  margin-bottom: 10px;
 }
 
-ul {
-  margin-top: 5px;
+#root {
+  padding: 10px;
 }

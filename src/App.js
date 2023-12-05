@@ -2,23 +2,29 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
-
-// Use array mapping in React
-const users = [
-    { name: "John Doe", id: 1 },
-    { name: "Jane Doe", id: 2 },
-    { name: "Billy Doe", id: 3 }
-  ];
+/**
+  Challenge: Make the button functional
+  A click on button should toggle (show/hide) the string `Toggle Challenge` each time it is pressed**/
   
   function App() {
+    const [toggle, setToggle] = React.useState(true);
+    const [clickCount, setClickCount] = React.useState(0); //Declares two pieces of state using the useState hook
+    
+    const handleToggle = () =>{
+      
+      setToggle(!toggle);
+      setClickCount(clickCount+1);
+      console.log("click ",{clickCount},toggle)
+      
+     
+    };
+
+    
     return (
       <>
-        <h3>User names</h3>
-        <ul>
-            {users.map(user=>(
-                <li key={user.id}>{user.name}</li>
-            ))}
-        </ul>
+        <button type='button' onClick={handleToggle}>Hide Element Below</button>
+  
+        <div id='div1' style={{ display: toggle ? 'block' : 'none' }}>Toggle Challenge</div>
       </>
     );
   }
