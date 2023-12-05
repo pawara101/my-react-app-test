@@ -24,27 +24,35 @@ function App() {
   }, []);
 
   // JSX rendering of the component
-  return (
-    <div className="App">
-      <h1 style={{ color: "green" }}>using JavaScript inbuilt FETCH API</h1>
-      <center>
-        {data.map((dataObj, index) => (
-          <div
-            key={index} // Adding a unique key to each rendered element
-            style={{
-              width: "15em",
-              backgroundColor: "#35D841",
-              padding: 2,
-              borderRadius: 10,
-              marginBlock: 10,
-            }}
-          >
-            <p style={{ fontSize: 20, color: 'white' }}>{dataObj.name}</p>
-          </div>
-        ))}
-      </center>
-    </div>
-  );
+  // return (
+  //   <div className="App">
+  //     <h1 style={{ color: "green" }}>using JavaScript inbuilt FETCH API</h1>
+  //     <center>
+  //       {data.map((dataObj, index) => (
+  //         <div
+  //           key={index} // Adding a unique key to each rendered element
+  //           style={{
+  //             width: "15em",
+  //             backgroundColor: "#35D841",
+  //             padding: 2,
+  //             borderRadius: 10,
+  //             marginBlock: 10,
+  //           }}
+  //         >
+  //           <p style={{ fontSize: 20, color: 'black' }}>{dataObj.name}</p>
+  //         </div>
+  //       ))}
+  //     </center>
+  //   </div>
+  // );
+
+return(
+  <div>
+    {data.map(user =>(
+      <li key={user.id}>{user.name}</li>
+    ))}
+  </div>
+);
 }
 
 
