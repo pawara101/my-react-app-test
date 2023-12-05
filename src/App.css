@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,14 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+h3 {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 5px;
 }
