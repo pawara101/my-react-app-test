@@ -2,26 +2,45 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
-  
-  function App() {
-    const [number1, setNumber1] = React.useState();
-    const [number2, setNumber2] = React.useState();
-    const [total, setTotal] = React.useState(0);
+const url = "https://jsonplaceholder.typicode.com/users/2";
+function App() {
+  const [userData, setUserData] = React.useState({});
+ 
+  const fetchInf = function () {
+    return fetch(url).then((res) => res.json())
+                    .then((data) => setUserData(data))
+                
+  };
 
-    function calculateTotal() {
-      setTotal(number1 + number2);
-    }
+    // useEffect hook to fetch data when the component mounts
+    useEffect(() => {
+      console.log('Fetching data...');
+      fetchInf();
+    }, []);
+  // No need to touch code below
+  return (
+    <div className="App">
+      <h2>User Data</h2>
+      <p>
+        <strong>Name: </strong>{" "}
+        {userData.name || "(Need to populate name here)"}
+      </p>
+      <p>
+        <strong>Website: </strong>
+        {userData.website || "(Need to populate website here)"}
+      </p>
+      <p>
+        <strong>Email: </strong>
+        {userData.email || "(Need to populate email here)"}
+      </p>
+      <p>
+        <strong>Phone: </strong>
+        {userData.phone || "(Need to populate phone here)"}
+      </p>
+    </div>
+  );
+}
 
-    return (
-      <div>
-        <h2>Adding Two Numbers</h2>
-        <input placeholder="First Number" type="number" val1={number1} onChange={(e) => setNumber1(+e.target.value)}/>
-        <input placeholder="Second Number" type="number" val2={number1} onChange={(e) => setNumber2(+e.target.value)}/>
-        <button onClick={calculateTotal}>Add Two Numbers</button>
-        <p>Total: {total || ""}</p>
-      </div>
-    );
-  }
   
 
 export default App;
